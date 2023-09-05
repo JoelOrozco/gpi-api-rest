@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env-
+package-lock.json
+bin/www
+.env_pruebas
+public/score_reports/*
+ine.jpeg
+ine.jpg
+ingreso.jpg
+ingreso.jpg

@@ -1,0 +1,22 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "GPI - Backend",
+        "description": "",
+        "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "host": "localhost:3002",
+    "basePath": "/api",
+    "paths": {
+        "/web/session/login": {
+            "$ref": "api_doc/web/session/login.json"
+        },
+        "/web/session/register": {
+            "$ref": "api_doc/web/session/register.json"
+        },
+        "/web/session/logout": {
+            "$ref": "api_doc/web/session/logout.json"
+        }
+    }
+}

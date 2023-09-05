@@ -1,0 +1,17 @@
+this.error1 = { status: 0, code: 1, msg: 'Error, ruta no definida' };
+this.error2 = { status: 0, code: 2, msg: 'Error, parametros incorrectos' };
+this.error3 = { status: 0, code: 3, msg: 'Error, error al ejecutar la consulta' };
+this.error4 = { status: 2, code: 4, msg: 'Error, sesión expirada' };
+this.error5 = { status: 0, code: 5, msg: 'Error, usuario incorrecto' };
+this.error6 = { status: 0, code: 6, msg: 'Error, usuario no encontrado' };
+this.error7 = { status: 0, code: 7, msg: 'Error, error al iniciar sesión' };
+this.error8 = { status: 2, code: 8, msg: 'Error, sesión expirada, favor de reiniciar la sesión' };
+this.error9 = { status: 0, code: 9, msg: 'Error, error al buscar la sesión' };
+this.error10 = { status: 0, code: 10, msg: 'Error, error al obtener la sesión' };
+this.error11 = { status: 0, code: 11, msg: 'Error, error al eliminar la sesión' };
+this.error12 = { status: 0, code: 12, msg: 'Error, error al iniciar sesión con facebook' };
+this.error13 = { status: 0, code: 13, msg: 'Error, ya existe un usuario registrado con este email' };
+this.error14 = { status: 2, code: 14, msg: 'Error, no se encontro la sesión' };
+this.error15 = { status: 2, code: 15, msg: 'Error, no se cuenta con el nivel suficiente para acceder a esta ruta' };
+this.error16 = { status: 2, code: 16, msg: 'Error, no cuenta con un nivel asignado' };
+this.error17 = { status: 2, code: 17, msg: 'Error, la sesión enviada no corresponde con la sesión actualmente activa' };

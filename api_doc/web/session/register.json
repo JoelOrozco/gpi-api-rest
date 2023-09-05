@@ -1,0 +1,61 @@
+{
+    "post": {
+        "operationId": "/session/register",
+        "tags": ["Web Session"],
+        "description": "",
+        "parameters": [{
+            "in": "body",
+            "name": "body",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "phone": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            }
+        }],
+        "responses": {
+            "200": {
+                "description": "ok",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "integer",
+                            "description": "Return status of request, 1 if are succesed and 0 if have an error",
+                            "required": true
+                        },
+                        "code": {
+                            "type": "integer",
+                            "description": "Return code number of error",
+                            "required": false
+                        },
+                        "msg": {
+                            "type": "string",
+                            "description": "Return message of request",
+                            "required": true
+                        },
+                        "data": {
+                            "type": "object",
+                            "description": "Return data of request",
+                            "required": false,
+                            "properties": {
+                                "session": { "type": "string" }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

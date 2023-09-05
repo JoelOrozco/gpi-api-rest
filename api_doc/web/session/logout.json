@@ -1,0 +1,41 @@
+{
+    "get": {
+        "operationId": "/session/logout",
+        "tags": ["Web Session"],
+        "description": "",
+        "parameters": [{
+            "in": "header",
+            "name": "session",
+            "schema": {
+                "type": "string",
+                "description": "token returned in login"
+            },
+            "required": true
+        }],
+        "responses": {
+            "200": {
+                "description": "ok",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "integer",
+                            "description": "Return status of request, 1 if are succesed, 2 if session are expired and 0 if have an error",
+                            "required": true
+                        },
+                        "code": {
+                            "type": "integer",
+                            "description": "Return code number of error",
+                            "required": false
+                        },
+                        "msg": {
+                            "type": "string",
+                            "description": "Return message of request",
+                            "required": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

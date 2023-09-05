@@ -1,0 +1,526 @@
+{
+    "web-session": "// ****************************** Web session ******************************",
+    "/api/web/session/login": {
+        "type": "object",
+        "properties": {
+            "email": { "type": "string" },
+            "password": { "type": "string" }
+        },
+        "required": ["email", "password"]
+    },
+    "/api/web/session/login-phone": {
+        "type": "object",
+        "properties": {
+            "phone": { "type": "string" }
+        }
+    },
+    "/api/web/session/register": {
+        "type": "object",
+        "properties": {
+            "phone": { "type": "string" },
+            "email": { "type": "string" },
+            "password": { "type": "string" }
+        },
+        "required": ["email", "password"]
+    },
+    "/api/web/session/recover-password": {
+        "type": "object",
+        "properties": {
+            "email": { "type": "string" }
+        },
+        "required": ["email"]
+    },
+    "/api/web/session/validate-recovery-code": {
+        "type": "object",
+        "properties": {
+            "email": { "type": "string" },
+            "recoveryCode": { "type": "string" }
+        },
+        "required": ["email", "recoveryCode"]
+    },
+    "/api/web/session/update-password": {
+        "type": "object",
+        "properties": {
+            "email": { "type": "string" },
+            "recoveryCode": { "type": "string" },
+            "password": { "type": "string" }
+        },
+        "required": ["email", "recoveryCode", "password"]
+    },
+    "/api/web/session/logout": {},
+    "web-user": "// ****************************** Web user ******************************",
+    "/api/web/user/create/credit-quotation": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "vehicle_price": { "type": "number" },
+                    "vehicle_hitch": { "type": "number" },
+                    "months": { "type": "number" },
+                    "vehicle_model": { "type": "string" },
+                    "vehicle_brand": { "type": "string" },
+                    "vehicle_version": { "type": "string" },
+                    "vehicle_description": { "type": "string" }
+                },
+                "required": [
+                    "vehicle_price", "vehicle_hitch", "months", "vehicle_model",
+                    "vehicle_brand", "vehicle_version", "vehicle_description"
+                ]
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/create/business-partner": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string" },
+                    "last_name": { "type": "string" },
+                    "email": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "phone2": { "type": "string" },
+                    "phone3": { "type": "string" },
+                    "state": { "type": "string" },
+                    "township": { "type": "string" },
+                    "company": { "type": "string" },
+                    "address": { "type": "string" },
+                    "postcode": { "type": "string" },
+                    "rfc": { "type": "string" }
+                },
+                "required": [
+                    "name", "last_name", "email", "phone",
+                    "state", "township", "company", "address", "rfc", "postcode"
+                ]
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/get": {},
+    "/api/web/user/get/details": {},
+    "/api/web/user/get/employment": {},
+    "/api/web/user/get/address": {},
+    "/api/web/user/update": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string" },
+                    "email": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "user_type": { "type": "string" },
+                    "email_verified_at": { "type": "string" },
+                    "password": { "type": "string" },
+                    "status": { "type": "string" },
+                    "a_step": { "type": "number" }                
+                },
+                "required": []
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/get/documents": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "clickupTaskId": { "type": "string" },
+                    "ine": { "type": "string" },
+                    "ingreso": { "type": "string" },
+                    "domicilio": { "type": "string" }
+                }
+            }
+        }
+    },
+    "/api/web/user/get/credit-quotation": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "user_id": { "type": "string" }
+                },
+                "required": []
+            }
+        }
+    },
+    "/api/web/user/get/references": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "user_id": { "type": "string" }
+                },
+                "required": []
+            }
+        }
+    },
+    "/api/web/user/update/details": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "first_name": { "type": "string" },
+                    "last_name": { "type": "string" },
+                    "gender": { "type": "string" },
+                    "nacionality": { "type": "string" },
+                    "RFC": { "type": "string" },
+                    "CURP": { "type": "string" },
+                    "eco_dep_people": { "type": "string" },
+                    "father_name": { "type": "string" },
+                    "mother_name": { "type": "string" },
+                    "DOB": { "type": "string" },
+                    "profile_pic": { "type": "string" },
+                    "marital_status": { "type": "string" },
+                    "latitude": { "type": "string" },
+                    "longitude": { "type": "string" },
+                    "device_type": { "type": "string" },
+                    "timezone": { "type": "string" }
+                },
+                "required": []
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/update/employment": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "employment_situation": { "type": "string" },
+                    "antique": { "type": "string" },
+                    "default_ocupation": { "type": "boolean" }
+                },
+                "required": []
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/update/address": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "country": { "type": "string" },
+                    "current_living": { "type": "string" },
+                    "street": { "type": "string" },
+                    "town": { "type": "string" },
+                    "state": { "type": "string" },
+                    "postcode": { "type": "string" },
+                    "address_no": { "type": "string" },
+                    "address_inside_no": { "type": "string" },
+                    "nationality": { "type": "string" },
+                    "neighborhood": { "type": "string" },
+                    "living_since": { "type": "string" },
+                    "streets": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "main_address": { "type": "number" }
+                },
+                "required": []
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/update/references": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string" },
+                    "phone": { "type": "string" }
+                },
+                "required": []
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/update/credit-quotation": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "number" },
+                    "vehicle_price": { "type": "number" },
+                    "vehicle_hitch": { "type": "number" },
+                    "months": { "type": "number" },
+                    "vehicle_model": { "type": "string" },
+                    "vehicle_brand": { "type": "string" },
+                    "vehicle_version": { "type": "string" },
+                    "vehicle_description": { "type": "string" }
+                },
+                "required": [
+                    "id"
+                ]
+            }
+        },
+        "required": ["data"]
+    },
+    "/api/web/user/confirmation/send": {
+        "type": "object",
+        "properties": {
+            "type": { "type": "number" }
+        },
+        "required": ["type"]
+    },
+    "/api/web/user/confirmation/verify": {
+        "type": "object",
+        "properties": {
+            "code": { "type": "string" }
+        },
+        "required": ["code"]
+    },
+    "/api/web/user/uploap/info-clickup": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/user/update/task-clickup": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/user/update/task-clickup-task": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/user/get/aval": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/user/get/obligado": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/user/get/contract": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/user/update/contract": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "user_id": { "type": "string" },
+                    "fecha_primer_pago": { "type": "string" },
+                    "frecuencia": { "type": "string" }
+
+                },
+                "required": []
+            }
+        }
+    },
+    "web-insurance": "// ****************************** Web user ******************************",
+    "/api/web/insurance/get/models": {},
+    "/api/web/insurance/get/insurce": {},
+    "/api/web/insurance/get/brands": {
+        "type": "object",
+        "properties": {
+            "model": { "type": "string" }
+        },
+        "required": ["model"]
+    },
+    "/api/web/insurance/get/versions": {
+        "type": "object",
+        "properties": {
+            "model": { "type": "string" },
+            "brand": { "type": "string" }
+        },
+        "required": ["model", "brand"]
+    },
+    "/api/web/insurance/get/descriptions": {
+        "type": "object",
+        "properties": {
+            "model": { "type": "string" },
+            "brand": { "type": "string" },
+            "version": { "type": "string" }
+        },
+        "required": ["model", "brand", "version"]
+    },
+    "/api/web/insurance/create/quotation": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "full_name": { "type": "string" },
+                    "age": { "type": "number" },
+                    "email": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "gender": { "type": "string" },
+                    "postcode": { "type": "string" },
+                    "payment_method": { "type": "string" },
+                    "vehicle_model": { "type": "string" },
+                    "vehicle_brand": { "type": "string" },
+                    "vehicle_version": { "type": "string" },
+                    "vehicle_description": { "type": "string" }
+                },
+                "required": [
+                    "full_name", "age", "email", "phone", "gender", "payment_method", "postcode",
+                    "vehicle_model", "vehicle_brand", "vehicle_version", "vehicle_description"
+                ]
+            }
+        },
+        "required": [
+            "data"
+        ]
+    },
+    "/api/web/insurance/get/quote": {
+        "type": "object",
+        "properties": {
+            "cia": { "type": "string" },
+            "vehicle_key": { "type": "string" },
+            "deductible": { "type": "string" },
+            "age": { "type": "string" },
+            "model": { "type": "string" },
+            "coverage": { "type": "string" },
+            "gender": { "type": "string" },
+            "postcode": { "type": "string" }
+        },
+        "required": [
+            "cia", "vehicle_key", "deductible", "age", "model",
+            "coverage", "gender", "postcode"
+        ]
+    },
+    "/api/web/user/create/contact": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string" },
+                    "email": { "type": "string" },
+                    "subject": { "type": "string" },
+                    "message": { "type": "string" }
+                },
+                "required": ["name", "email", "subject", "message"]
+            }
+        },
+        "required": [
+            "data"
+        ]
+    },
+    "/api/web/user/save/request-type": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "request_type": { "type": "string" },
+                    "clickupTaskId": { "type": "string" },
+                    "bc_score": { "type": "string" }
+                },
+                "required": ["request_type"]
+            },
+            "required": [
+                "data"
+            ]
+        }
+    },
+    "/api/web/user/update/file-clickup": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        }
+    },
+    "/api/web/user/update/get-fill-ine": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        }
+    },
+    "/api/web/insurance/save/insurance": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "number" },
+                    "cia": { "type": "string" },
+                    "material_damage": { "type": "number" },
+                    "steal_total": { "type": "number" },
+                    "initial_payment": { "type": "number" }
+                },
+                "required": ["id", "cia", "material_damage", "steal_total", "initial_payment"]
+            }
+        },
+        "required": [
+            "data"
+        ]
+    },
+    "/api/web/insurance/save/type_contact": {
+        "type": "object",
+        "properties": {
+            "data": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "date_contact": { "type": "string" },
+                    "hour_contact": { "type": "string" },
+                    "type_contact": { "type": "string" }
+                },
+                "required": ["id", "type_contact"]
+            },
+            "required": [
+                "data"
+            ]
+        }
+    },
+    "/api/web/utility/send_email": {
+        "type": "object",
+        "properties": {"data":{ "type": "string" } }
+    },    
+    "/api/web/lote/get": {
+        "type": "object",
+        "properties": {
+        }
+    },    
+    "/api/web/utility/prueba": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/banco/createOperacion": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/statusHistory/get": {
+        "type": "object",
+        "properties": {
+        }
+    }, 
+    "/api/web/statusHistory/getCondition": {
+        "type": "object",
+        "properties": {
+        }
+    },
+    "/api/web/statusHistory/getReject": {
+        "type": "object",
+        "properties": {
+        }
+    }
+}
