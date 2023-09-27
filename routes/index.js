@@ -1,7 +1,10 @@
 var express = require('express');
+var dotenv = require('dotenv');
 var router = express.Router();
 var cors = require('cors');
 
+
+dotenv.config();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
 const $RefParser = require('json-schema-ref-parser');
@@ -41,5 +44,6 @@ router.options('*', cors());
 //router.use('/api/web/session', require('./web/session'));
 router.use('/api/web/test', require('./web/test'));
 router.use('/api/user', require('./userRoutes'));
+router.use('/api/credia', require('./crediaRoutes'));
 
 module.exports = router;

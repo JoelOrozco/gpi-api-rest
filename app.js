@@ -8,7 +8,6 @@ var indexRouter = require('./routes/index');
 const fileUpload = require('express-fileupload');
 
 var app = express();
-const port =  8080;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -10,6 +10,7 @@
         "@aws-sdk/client-textract": "^3.100.0",
         "amazon-textract-response-parser": "^0.2.0",
         "aws-sdk": "^2.1132.0",
+        "axios": "^1.5.0",
         "boto3": "^0.0.1",
         "conekta": "^6.0.0",
         "connect-mongodb-session": "^3.1.1",
