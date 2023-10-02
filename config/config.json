@@ -16,10 +16,10 @@
     "logging": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "gpi",
+    "password": "Passw0rd",
+    "database": "CrediMovil",
+    "host": "gpi-credimovil.czykuruuafjz.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   }

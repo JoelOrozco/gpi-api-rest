@@ -1,8 +1,8 @@
-const { users, user_details, user_address, user_contract, quote_credit } = require('../models');
+const { users, user_details, user_address, user_contract, quote_credit, insurce } = require('../models');
 
 const crediaService = new require("../services/CrediaService");
 const { ClienteModel, DireccionModel,
-    ContactoModel, InformacionAdicionalModel } = require("../model/clienteModel");
+    ContactoModel, InformacionAdicionalModel, AvalModel } = require("../model/clienteModel");
 const { CreditoModel, ClienteCreditoModel } = require("../model/creditoModel");
 const { Nacionalidad, Genero, EstadoCivil } = require("../enums/clienteEnum");
 
@@ -13,11 +13,10 @@ module.exports = {
             .then(async result => {
                 let token = result.access_token;
                 let cliente = await fillCliente(req.body.clickup_task);
+                console.log(JSON.stringify(cliente));
                 let insert = await postCliente(JSON.stringify(cliente));
-                success(insert);
-                res.status(200).send(cliente);
+                res.status(200).send(insert);
             }).catch(error => {
-                console.log("----crediaService-error----", error);
                 res.status(400).send(error);
             });
     },
@@ -26,10 +25,10 @@ module.exports = {
             .then(async result => {
                 let credito = await fillCredito(req.body.clickup_task);
                 let insetCredito = { credito: credito };
+                console.log(JSON.stringify(insetCredito));
                 let insert = await postCredito(JSON.stringify(insetCredito));
-                res.status(200).send(JSON.stringify(insert));
+                res.status(200).send(insert);
             }).catch(error => {
-                console.log("----crediaService-error----", error);
                 res.status(400).send(error);
             });
     }
@@ -86,19 +85,41 @@ async function fillCliente(_clickup_task) {
             cliente.InformacionAdicional = informacionAdicional;
             cliente.RepresentanteLegal = {};
             cliente.LugarNacimiento = {};
-            console.log(cliente);
+            cliente.RepresentanteLegal = {};
             success(cliente);
         }).catch(err => { error(err); });
     });
 }
 
-function postCliente(cliente) {
+async function fillAval(_idUser) {
     return new Promise((success, error) => {
-        crediaService.postCliente(cliente)
+        let avalModel = new AvalModel();
+        users.findAll({
+            where: { id: _idUser },
+        }).then(async result => {
+            const user = result[0];
+
+            const user_detail = await user_details.findOne({
+                where: { user_id: user.id },
+            }).catch(err => { error(err); });
+
+            const address = await user_address.findOne({
+                where: { user_id: user.id },
+            }).catch(err => { error(err); });
+
+AvalModel
+            success(cliente);
+        }).catch(err => { error(err); });
+     });
+}
+
+
+function postCliente(_cliente) {
+    return new Promise((success, error) => {
+        crediaService.postCliente(_cliente)
             .then((result) => {
                 success(result);
             }, err => {
-                console.log(err);
                 error(err);
             }).catch(err => {
                 error(err);
@@ -128,26 +149,34 @@ async function fillCredito(_clickup_task) {
                 where: { user_id: user.id },
             }).catch(err => { error(err); });
 
+            const insurce_ = await insurce.findOne({
+                where: { user_id: user.id },
+            }).catch(err => { error(err); });
+
             cliente.RFC = user_detail.RFC;
 
             credito.TipoPago = contract.frecuencia;
             credito.NoContrato = contract.numero_operacion;
-            credito.TasaAnual = contract.tasa * 12;
+            credito.TasaAnual = (contract.tasa / 1.16) * 12;
             credito.TasaMoratoria = process.env.TasaMoratoria;
             credito.Plazos = quote.months;
             credito.FechaPrimerPago = contract.fecha_primer_pago;
-            credito.MontoDisponer = quote.requested_amount_credit;
+            
+            if (quote.insurance_payment == "FINANCIADO") {
+                credito.MontoDisponer = Number(quote.requested_amount_credit) +Number(insurce_.insurce_price);
+            } else {
+                credito.MontoDisponer = Number(quote.requested_amount_credit);
+            }
 
             credito.Cliente = cliente;
-
             success(credito);
         }).catch(err => { error(err); });
     });
 }
 
-function postCredito(credito) {
+function postCredito(_credito) {
     return new Promise((success, error) => {
-        crediaService.postCredito(credito)
+        crediaService.postCredito(_credito)
             .then((result) => {
                 success(result);
             }, err => {

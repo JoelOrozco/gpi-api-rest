@@ -2,9 +2,7 @@ const axios = require('axios');
 let token = "";
 
 class CrediaService {
-    constructor() {
-
-    }
+    constructor() {}
 
     async getToken() {
         this.client = axios.create({
@@ -23,7 +21,9 @@ class CrediaService {
                 token = result.data.access_token;
                 success(result.data);
             }).catch(err => {
-                error(err)
+                let result = this.getError(err);
+                console.log("--------result------",result);
+                error(err);
             });
         });
     }

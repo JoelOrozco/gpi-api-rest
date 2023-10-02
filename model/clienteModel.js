@@ -1,7 +1,7 @@
 const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     Metodo, Medios, Destino, MediosOtorgamiento, Identificacion } = require("../enums/clienteEnum");
 
- class ClienteModel {
+class ClienteModel {
     TipoFigura = "";
     ApellidoPaterno = "";
     ApellidoMaterno = "";
@@ -25,6 +25,7 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     ActividadEconomica = "";
     Identificacion = "";
     NumeroDocumento = "";
+    Avales = [];
 
     constructor(
         TipoFigura = "",
@@ -77,7 +78,7 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     }
 }
 
- class LugarNacimientoModel {
+class LugarNacimientoModel {
     Pais = "";
     Estado = "";
     constructor(Pais = "", Estado = "") {
@@ -86,7 +87,7 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     }
 }
 
- class DireccionModel {
+class DireccionModel {
     CodigoPostal = "";
     Pais = "";
     Estado = "";
@@ -122,7 +123,7 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     }
 }
 
- class ContactoModel {
+class ContactoModel {
     TelefonoFisico = "";
     TelefonoCelular = "";
     TelefonoOtro = "";
@@ -141,7 +142,7 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     }
 }
 
- class InformacionAdicionalModel {
+class InformacionAdicionalModel {
     ParentescoSofom = "";
     CargoPolitico = "";
     CargoPoliticoPariente = "";
@@ -158,6 +159,13 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     PropietarioReal = "Si";
     Antecendentes = "No";
     PaisMedidasDeficientes = "No";
+    CargoPoliticoDependencia = "";
+    
+    CargoPoliticoPuesto = "";
+    CargoPoliticoFunciones = "";
+    CargoPoliticoInicio = "";
+    CargoPoliticoFin = "";
+    TrabajaAqui = "No";
     constructor(
         ParentescoSofom = "",
         CargoPolitico = "",
@@ -195,11 +203,12 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     }
 }
 
- class RepresentanteLegalModel {
+class RepresentanteLegalModel {
     ApellidoPaterno = "";
     ApellidoMaterno = "";
     SegundoNombre = "";
     Nombre = "";
+
     constructor(
         ApellidoPaterno = "",
         ApellidoMaterno = "",
@@ -213,7 +222,21 @@ const { Nacionalidad, Genero, EstadoCivil, Ocupacion, OrigenPagoCredito,
     }
 }
 
-module.exports = { ClienteModel, LugarNacimientoModel,ContactoModel,
-                   DireccionModel, DireccionModel,
-                   DireccionModel, InformacionAdicionalModel,
-                   RepresentanteLegalModel}
+class AvalModel
+    {
+      ClienteID = 0;
+      ClienteAvalID = 0;
+      TelefonoFisico = "";
+      TelefonoCelular = "";
+      Correo = "";
+      NombreCompleto = "";
+      DireccionCompleta = "";
+    }
+
+
+module.exports = {
+    ClienteModel, LugarNacimientoModel, ContactoModel,
+    DireccionModel, DireccionModel,
+    DireccionModel, InformacionAdicionalModel,
+    RepresentanteLegalModel, AvalModel
+}
